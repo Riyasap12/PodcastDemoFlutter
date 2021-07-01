@@ -15,7 +15,7 @@ class _PodcastState extends State<Podcast> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<PodcastDemo>(context, listen: false);
-    return MaterialApp(debugShowCheckedModeBanner: false,e
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: Scaffold(
         floatingActionButton: Builder(
           builder: (context)=>
