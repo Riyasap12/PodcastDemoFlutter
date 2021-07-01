@@ -1,29 +1,26 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:muhsin01/main.dart';
+import 'package:muhsin01/provider1.dart';
+import 'package:provider/provider.dart';
 import 'package:muhsin01/page01.dart';
-class play01 extends StatefulWidget {
-  const play01({Key? key}) : super(key: key);
+class PlayEpisode extends StatefulWidget {
+  const PlayEpisode({Key? key}) : super(key: key);
 
   @override
-  _play01State createState() => _play01State();
+  _PlayEpisodeState createState() => _PlayEpisodeState();
 }
 
-class _play01State extends State<play01> {
+class _PlayEpisodeState extends State<PlayEpisode> {
   @override
   Widget build(BuildContext context) {
     double _currentSliderValue = 0;
-    double value=1;
-
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
+    final user=Provider.of<PodcastDemo>(context,listen: false);
     return Scaffold(
       backgroundColor: Colors.blue[700],
       appBar: AppBar(
           backgroundColor: Colors.blue[700],
           leading: IconButton(onPressed:(){
             Navigator.push(context,
-              MaterialPageRoute(builder: (context) => page01()),
+              MaterialPageRoute(builder: (context) => PodcastDetail()),
             );
           }, icon: Icon(Icons.arrow_back,color: Colors.white,),),
           actions: [
@@ -61,7 +58,7 @@ class _play01State extends State<play01> {
                         Container(
                           padding:const EdgeInsets.fromLTRB(0,20,0,8),
                           child: Text(
-                            'Yasamac',
+                            user.eptitle,
                             style: TextStyle(color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 25.0,
@@ -169,17 +166,21 @@ class _play01State extends State<play01> {
                 ],
               ),
             ),
+            Container(
+              child: IconButton(
+                  icon: new Icon(
+                    Icons.add,color: Colors.white, size: 30,),
+
+                  onPressed: null
+              ),
+            ),
 
             SizedBox(
               width: 0.0,
               height: 10.0,)
 
           ],),
-
       ),
-
-
-
     );
   }
 }
